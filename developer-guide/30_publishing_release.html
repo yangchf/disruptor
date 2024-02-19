@@ -5,8 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 2.0.12">
-<meta name="author" content="High Performance Inter-Thread Messaging Library">
-<title>LMAX Disruptor</title>
+<title>Publishing Release</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
 <style>
 /* Asciidoctor default stylesheet | MIT License | https://asciidoctor.org */
@@ -439,183 +438,342 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 @media amzn-kf8{#header,#content,#footnotes,#footer{padding:0}}
 </style>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+pre { line-height: 125%; }
+td.linenos .normal { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+span.linenos { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+td.linenos .special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+pre.pygments .hll { background-color: #ffffcc }
+pre.pygments { background: #f8f8f8; }
+pre.pygments .tok-c { color: #3D7B7B; font-style: italic } /* Comment */
+pre.pygments .tok-err { border: 1px solid #FF0000 } /* Error */
+pre.pygments .tok-k { color: #008000; font-weight: bold } /* Keyword */
+pre.pygments .tok-o { color: #666666 } /* Operator */
+pre.pygments .tok-ch { color: #3D7B7B; font-style: italic } /* Comment.Hashbang */
+pre.pygments .tok-cm { color: #3D7B7B; font-style: italic } /* Comment.Multiline */
+pre.pygments .tok-cp { color: #9C6500 } /* Comment.Preproc */
+pre.pygments .tok-cpf { color: #3D7B7B; font-style: italic } /* Comment.PreprocFile */
+pre.pygments .tok-c1 { color: #3D7B7B; font-style: italic } /* Comment.Single */
+pre.pygments .tok-cs { color: #3D7B7B; font-style: italic } /* Comment.Special */
+pre.pygments .tok-gd { color: #A00000 } /* Generic.Deleted */
+pre.pygments .tok-ge { font-style: italic } /* Generic.Emph */
+pre.pygments .tok-gr { color: #E40000 } /* Generic.Error */
+pre.pygments .tok-gh { color: #000080; font-weight: bold } /* Generic.Heading */
+pre.pygments .tok-gi { color: #008400 } /* Generic.Inserted */
+pre.pygments .tok-go { color: #717171 } /* Generic.Output */
+pre.pygments .tok-gp { color: #000080; font-weight: bold } /* Generic.Prompt */
+pre.pygments .tok-gs { font-weight: bold } /* Generic.Strong */
+pre.pygments .tok-gu { color: #800080; font-weight: bold } /* Generic.Subheading */
+pre.pygments .tok-gt { color: #0044DD } /* Generic.Traceback */
+pre.pygments .tok-kc { color: #008000; font-weight: bold } /* Keyword.Constant */
+pre.pygments .tok-kd { color: #008000; font-weight: bold } /* Keyword.Declaration */
+pre.pygments .tok-kn { color: #008000; font-weight: bold } /* Keyword.Namespace */
+pre.pygments .tok-kp { color: #008000 } /* Keyword.Pseudo */
+pre.pygments .tok-kr { color: #008000; font-weight: bold } /* Keyword.Reserved */
+pre.pygments .tok-kt { color: #B00040 } /* Keyword.Type */
+pre.pygments .tok-m { color: #666666 } /* Literal.Number */
+pre.pygments .tok-s { color: #BA2121 } /* Literal.String */
+pre.pygments .tok-na { color: #687822 } /* Name.Attribute */
+pre.pygments .tok-nb { color: #008000 } /* Name.Builtin */
+pre.pygments .tok-nc { color: #0000FF; font-weight: bold } /* Name.Class */
+pre.pygments .tok-no { color: #880000 } /* Name.Constant */
+pre.pygments .tok-nd { color: #AA22FF } /* Name.Decorator */
+pre.pygments .tok-ni { color: #717171; font-weight: bold } /* Name.Entity */
+pre.pygments .tok-ne { color: #CB3F38; font-weight: bold } /* Name.Exception */
+pre.pygments .tok-nf { color: #0000FF } /* Name.Function */
+pre.pygments .tok-nl { color: #767600 } /* Name.Label */
+pre.pygments .tok-nn { color: #0000FF; font-weight: bold } /* Name.Namespace */
+pre.pygments .tok-nt { color: #008000; font-weight: bold } /* Name.Tag */
+pre.pygments .tok-nv { color: #19177C } /* Name.Variable */
+pre.pygments .tok-ow { color: #AA22FF; font-weight: bold } /* Operator.Word */
+pre.pygments .tok-w { color: #bbbbbb } /* Text.Whitespace */
+pre.pygments .tok-mb { color: #666666 } /* Literal.Number.Bin */
+pre.pygments .tok-mf { color: #666666 } /* Literal.Number.Float */
+pre.pygments .tok-mh { color: #666666 } /* Literal.Number.Hex */
+pre.pygments .tok-mi { color: #666666 } /* Literal.Number.Integer */
+pre.pygments .tok-mo { color: #666666 } /* Literal.Number.Oct */
+pre.pygments .tok-sa { color: #BA2121 } /* Literal.String.Affix */
+pre.pygments .tok-sb { color: #BA2121 } /* Literal.String.Backtick */
+pre.pygments .tok-sc { color: #BA2121 } /* Literal.String.Char */
+pre.pygments .tok-dl { color: #BA2121 } /* Literal.String.Delimiter */
+pre.pygments .tok-sd { color: #BA2121; font-style: italic } /* Literal.String.Doc */
+pre.pygments .tok-s2 { color: #BA2121 } /* Literal.String.Double */
+pre.pygments .tok-se { color: #AA5D1F; font-weight: bold } /* Literal.String.Escape */
+pre.pygments .tok-sh { color: #BA2121 } /* Literal.String.Heredoc */
+pre.pygments .tok-si { color: #A45A77; font-weight: bold } /* Literal.String.Interpol */
+pre.pygments .tok-sx { color: #008000 } /* Literal.String.Other */
+pre.pygments .tok-sr { color: #A45A77 } /* Literal.String.Regex */
+pre.pygments .tok-s1 { color: #BA2121 } /* Literal.String.Single */
+pre.pygments .tok-ss { color: #19177C } /* Literal.String.Symbol */
+pre.pygments .tok-bp { color: #008000 } /* Name.Builtin.Pseudo */
+pre.pygments .tok-fm { color: #0000FF } /* Name.Function.Magic */
+pre.pygments .tok-vc { color: #19177C } /* Name.Variable.Class */
+pre.pygments .tok-vg { color: #19177C } /* Name.Variable.Global */
+pre.pygments .tok-vi { color: #19177C } /* Name.Variable.Instance */
+pre.pygments .tok-vm { color: #19177C } /* Name.Variable.Magic */
+pre.pygments .tok-il { color: #666666 } /* Literal.Number.Integer.Long */
+</style>
 </head>
 <body class="article toc2 toc-left">
 <div id="header">
-<h1>LMAX Disruptor</h1>
+<h1>Publishing Release</h1>
 <div class="details">
-<span id="author" class="author">High Performance Inter-Thread Messaging Library</span><br>
 <span id="revnumber">version 4.0.0-SNAPSHOT</span>
 </div>
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
 <ul class="sectlevel1">
-<li><a href="#_read_this_first">Read This First</a></li>
-<li><a href="#_what_is_the_disruptor">What is the Disruptor?</a></li>
-<li><a href="#_whats_the_big_deal">What&#8217;s the big deal?</a></li>
-<li><a href="#_great_what_do_i_do_next">Great What do I do next?</a></li>
-<li><a href="#_discussion_blogs_other_useful_links">Discussion, Blogs &amp; Other Useful Links</a></li>
-<li><a href="#_presentations">Presentations</a></li>
-<li><a href="#_changelog">Changelog</a></li>
+<li><a href="#_prerequisites">Prerequisites</a></li>
+<li><a href="#_gpg_key">GPG Key</a>
+<ul class="sectlevel2">
+<li><a href="#_creating_a_new_gpg_signing_key">Creating a new GPG signing key</a></li>
+<li><a href="#_adding_signing_options_for_gradle">Adding signing options for gradle</a></li>
+<li><a href="#_publish_your_public_key">Publish your public key</a></li>
+</ul>
+</li>
+<li><a href="#_release_process">Release process</a></li>
 </ul>
 </div>
 </div>
 <div id="content">
 <div class="sect1">
-<h2 id="_read_this_first">Read This First</h2>
+<h2 id="_prerequisites">Prerequisites</h2>
 <div class="sectionbody">
-<div class="paragraph">
-<p>To understand the problem the Disruptor is trying to solve, and to get a feel for why this concurrency framework is so fast, read the <a href="disruptor.html">Technical Paper</a>.
-It also contains detailed performance results.</p>
-</div>
-<div class="paragraph">
-<p>And now for some words from our sponsors&#8230;&#8203;</p>
-</div>
-<div class="paragraph">
-<p>LMAX are recruiting once again.
-If you are interested in working with a great team, with some amazing technology, and think you can add something to the mix then please check out our <a href="https://careers.lmax.com/">jobs page</a>.</p>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>All tests should be completing successfully in CI and locally</p>
+</li>
+<li>
+<p>The changelog is updated with relevant information</p>
+</li>
+<li>
+<p><code>build.gradle</code> has been updated with the version information for the proposed release, and pushed to GitHub</p>
+</li>
+<li>
+<p>Create a new release via GitHub UI, this should tag the commit</p>
+</li>
+</ol>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_what_is_the_disruptor">What is the Disruptor?</h2>
+<h2 id="_gpg_key">GPG Key</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p><a href="https://www.lmax.com">LMAX</a> aims to be the fastest trading platform in the world.
-Clearly, in order to achieve this we needed to do something special to achieve very low-latency and high-throughput with our Java platform.
-Performance testing showed that using queues to pass data between stages of the system was introducing latency, so we focused on optimising this area.</p>
+<p>To sign the artifact, a requirement for public release, you must have a signing GPG key set up.</p>
 </div>
+<div class="sect2">
+<h3 id="_creating_a_new_gpg_signing_key">Creating a new GPG signing key</h3>
 <div class="paragraph">
-<p>The Disruptor is the result of our research and testing.
-We found that cache misses at the CPU-level, and locks requiring kernel arbitration are both extremely costly, so we created a framework which has "mechanical sympathy" for the hardware it&#8217;s running on, and that&#8217;s lock-free.</p>
-</div>
-<div class="paragraph">
-<p>This is not a specialist solution, it&#8217;s not designed to work only for a financial application.
-The Disruptor is a general-purpose mechanism for solving a difficult problem in concurrent programming.</p>
-</div>
-<div class="paragraph">
-<p>It works in a different way to more conventional approaches, so you use it a little differently than you might be used to.
-For example, applying the pattern to your system is not as simple as replacing all your queues with the <a href="https://trishagee.com/2011/06/22/dissecting_the_disruptor_whats_so_special_about_a_ring_buffer/">magic ring buffer</a>.
-We&#8217;ve got:</p>
+<p>If you already have a GPG signing key, you can skip to the next section.</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>a <a href="user-guide/index.html">User Guide</a> to guide you,</p>
-</li>
-<li>
-<p>a growing number of <a href="https://github.com/LMAX-Exchange/disruptor/wiki/Blogs-And-Articles">blogs and articles</a> giving an overview of how it works,</p>
-</li>
-<li>
-<p>the <a href="disruptor.html">technical paper</a> goes into some detail as you&#8217;d expect,</p>
-</li>
-<li>
-<p>and the performance tests give examples of how to use the Disruptor.</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>If you prefer real, live people explaining things instead of a dry paper or content-heavy website, there&#8217;s always the <a href="https://www.infoq.com/presentations/LMAX/">presentation Mike and Martin gave</a> at QCon San Francisco.
-If you fancy a natter with the folks involved head over to our <a href="https://groups.google.com/g/lmax-disruptor">Discussion Group</a>.
-Martin Thompson will also witter on occasionally about performance in his <a href="https://mechanical-sympathy.blogspot.com/">Mechanical Sympathy blog</a>.
-Martin Fowler has also done a great <a href="https://martinfowler.com/articles/lmax.html">review</a> of the Disruptor&#8217;s application at LMAX.</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_whats_the_big_deal">What&#8217;s the big deal?</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>It&#8217;s fast.
-Very fast.</p>
-</div>
-<div class="imageblock">
+<p>If you are on version 2.1.17 or greater, run the command below to generate a GPG key pair:</p>
+<div class="openblock">
 <div class="content">
-<img src="./resources/images/latency-histogram.png" alt="latency histogram">
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="shell script"><span></span>$ gpg --full-generate-key</code></pre>
 </div>
-<div class="title">Figure 1. Latency histogram comparing Disruptor to ArrayBlockingQueue</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>At the prompt, specify the kind of key you want, or press Enter to accept the default <code>RSA and RSA</code>.</p>
+</li>
+<li>
+<p>Enter the desired key size. Your key must be at least 4096 bits.</p>
+</li>
+<li>
+<p>Enter the length of time the key should be valid. Press Enter to specify the default selection, indicating that the key doesn&#8217;t expire.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</li>
+<li>
+<p>If you are not on version 2.1.17 or greater, the <code>gpg --full-generate-key</code> command doesn&#8217;t work. Use the following command instead:</p>
+<div class="openblock">
+<div class="content">
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="shell script"><span></span>$ gpg --default-new-key-algo rsa4096 --gen-key</code></pre>
+</div>
+</div>
+</div>
+</div>
+</li>
+<li>
+<p>Verify that your selections are correct.</p>
+</li>
+<li>
+<p>Enter your user ID information.</p>
+</li>
+<li>
+<p>Type a secure passphrase.</p>
+</li>
+<li>
+<p>(is using gpg &gt;= 2.1) Export the keyring to a gpg file</p>
+<div class="openblock">
+<div class="content">
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="shell script"><span></span>gpg --keyring secring.gpg --export-secret-keys &gt; ~/.gnupg/secring.gpg</code></pre>
+</div>
+</div>
+</div>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_adding_signing_options_for_gradle">Adding signing options for gradle</h3>
+<div class="ulist">
+<ul>
+<li>
+<p><code>signing.keyId</code> is the last 8 characters of the public key id for the signing key, in this example, <code>2657EDD1</code>.</p>
+</li>
+<li>
+<p><code>signing.password</code> is the passphrase for your keyring</p>
+</li>
+<li>
+<p><code>signing.secretKeyRingFile</code> is the absolute path to the secret key ring file containing your private key</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="shell script"><span></span>$ gpg --list-secret-keys --keyid-format SHORT
+/home/dev/.gnupg/pubring.kbx
+-----------------------------
+sec   rsa4096/2657EDD1 2021-12-31 [SC]
+      EA38CE5CFD74BBB831611491F9CE691A2657EDD1
+uid         [ultimate] LMAX Coders (LMAX Dev Team) &lt;coders@lmax.com&gt;
+ssb   rsa4096/F4831415 2021-12-31 [E]
+
+
+$ cat gradle.properties
+signing.keyId=2657EDD1
+signing.password=&lt;passphrase used to protect your private key&gt;
+signing.secretKeyRingFile=/home/dev/.gnupg/secring.gpg</code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p>Note that this is a log-log scale, not linear.
-If we tried to plot the comparisons on a linear scale, we&#8217;d run out of space very quickly.
-We have performance results of the test that produced these results, plus others of throughput testing.</p>
+<p>See: <a href="https://docs.gradle.org/current/userguide/signing_plugin.html" class="bare">https://docs.gradle.org/current/userguide/signing_plugin.html</a></p>
 </div>
 </div>
-</div>
-<div class="sect1">
-<h2 id="_great_what_do_i_do_next">Great What do I do next?</h2>
-<div class="sectionbody">
-<div class="ulist">
-<ul>
-<li>
-<p>Read the <a href="user-guide/index.html">User Guide</a>,</p>
-</li>
-<li>
-<p>Read the <a href="./javadoc/index.html">API documentation</a>,</p>
-</li>
-<li>
-<p>Check out our <a href="https://github.com/LMAX-Exchange/disruptor/wiki/Frequently-Asked-Questions">Frequently Asked Questions</a></p>
-</li>
-<li>
-<p>Want to work on the Disruptor? Read the <a href="developer-guide/index.html">Developer Guide</a>,</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_discussion_blogs_other_useful_links">Discussion, Blogs &amp; Other Useful Links</h2>
-<div class="sectionbody">
-<div class="ulist">
-<ul>
-<li>
-<p><a href="https://groups.google.com/g/lmax-disruptor">Disruptor Google Group</a></p>
-</li>
-<li>
-<p><a href="disruptor.html">Disruptor Paper</a></p>
-</li>
-<li>
-<p><a href="https://martinfowler.com/articles/lmax.html">Martin Fowler&#8217;s Technical Review</a></p>
-</li>
-<li>
-<p><a href="https://github.com/disruptor-net/Disruptor-net">.NET Disruptor Port</a></p>
-</li>
-<li>
-<p><a href="https://www.lmax.com">LMAX Exchange</a></p>
-</li>
-<li>
-<p><a href="https://www.lmax.com/blog/staff-blogs/">LMAX Staff Blogs</a></p>
-</li>
-<li>
-<p><a href="https://mechanical-sympathy.blogspot.com/">Mechanical Sympathy</a> (Martin Thompson)</p>
-</li>
-<li>
-<p><a href="https://bad-concurrency.blogspot.com/">Bad Concurrency</a> (Michael Barker)</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_presentations">Presentations</h2>
-<div class="sectionbody">
-<div class="ulist">
-<ul>
-<li>
-<p><a href="https://www.infoq.com/presentations/LMAX/">Disruptor presentation @ QCon SF</a></p>
-</li>
-<li>
-<p><a href="https://www.slideshare.net/trishagee/introduction-to-the-disruptor">Introduction to the Disruptor</a></p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_changelog">Changelog</h2>
-<div class="sectionbody">
+<div class="sect2">
+<h3 id="_publish_your_public_key">Publish your public key</h3>
 <div class="paragraph">
-<p>The changelog can be <a href="changelog.html">found here</a>.</p>
+<p>You need to publish your public key so that sonatype can verify who signed the release artifacts.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>gpg --keyserver https://keyserver.ubuntu.com/ --send-keys 2657EDD1</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Note: Other <code>keyservers</code> are available</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_release_process">Release process</h2>
+<div class="sectionbody">
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Clean any existing build data</p>
+<div class="openblock">
+<div class="content">
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="shell script"><span></span>$ ./gradlew clean</code></pre>
+</div>
+</div>
+</div>
+</div>
+</li>
+<li>
+<p>Add <code>gradle.properties</code> file in the root of the disruptor project with the following content</p>
+<div class="openblock">
+<div class="content">
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="shell script"><span></span>$ cat gradle.properties
+
+sonatypeUsername=&lt;username for sonatype&gt;
+sonatypePassword=&lt;password for sonatype&gt;
+signing.keyId=&lt;signing-key&gt;
+signing.password=&lt;password&gt;&gt;
+signing.secretKeyRingFile=/home/dev/.gnupg/secring.gpg</code></pre>
+</div>
+</div>
+</div>
+</div>
+</li>
+<li>
+<p>Build &amp; upload to Sonatype</p>
+<div class="openblock">
+<div class="content">
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="shell script"><span></span>$ ./gradlew publish</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><strong>Note: Make sure the signing step was not skipped</strong></p>
+</div>
+</div>
+</div>
+</li>
+<li>
+<p>Release in to Sonatype</p>
+<div class="openblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Log in to <a href="https://oss.sonatype.org/" class="bare">https://oss.sonatype.org/</a></p>
+</li>
+<li>
+<p>Go to <a href="https://oss.sonatype.org/#stagingRepositories">Staging Repositories</a></p>
+</li>
+<li>
+<p>Verify all the files are present and correct (including <code>*.asc</code> files generated by signing)</p>
+</li>
+<li>
+<p>Close the staging repository</p>
+</li>
+<li>
+<p>Release the repository</p>
+</li>
+<li>
+<p>Assuming all went well, wait to see changes at: <a href="https://repo1.maven.org/maven2/com/lmax/disruptor/" class="bare">https://repo1.maven.org/maven2/com/lmax/disruptor/</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</li>
+<li>
+<p>Remove <code>gradle.properties</code> file</p>
+<div class="openblock">
+<div class="content">
+<div class="paragraph">
+<p>This file is ignored from git, but I would not advise leaving it on disk long term as it has 2 passwords in plain text.</p>
+</div>
+</div>
+</div>
+</li>
+</ol>
 </div>
 </div>
 </div>

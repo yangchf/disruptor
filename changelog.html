@@ -5,8 +5,8 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 2.0.12">
-<meta name="author" content="High Performance Inter-Thread Messaging Library">
-<title>LMAX Disruptor</title>
+<meta name="author" content="LMAX Development Team">
+<title>Changelog</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
 <style>
 /* Asciidoctor default stylesheet | MIT License | https://asciidoctor.org */
@@ -442,180 +442,1010 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </head>
 <body class="article toc2 toc-left">
 <div id="header">
-<h1>LMAX Disruptor</h1>
+<h1>Changelog</h1>
 <div class="details">
-<span id="author" class="author">High Performance Inter-Thread Messaging Library</span><br>
+<span id="author" class="author">LMAX Development Team</span><br>
+<span id="email" class="email"></span><br>
 <span id="revnumber">version 4.0.0-SNAPSHOT</span>
 </div>
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
 <ul class="sectlevel1">
-<li><a href="#_read_this_first">Read This First</a></li>
-<li><a href="#_what_is_the_disruptor">What is the Disruptor?</a></li>
-<li><a href="#_whats_the_big_deal">What&#8217;s the big deal?</a></li>
-<li><a href="#_great_what_do_i_do_next">Great What do I do next?</a></li>
-<li><a href="#_discussion_blogs_other_useful_links">Discussion, Blogs &amp; Other Useful Links</a></li>
-<li><a href="#_presentations">Presentations</a></li>
-<li><a href="#_changelog">Changelog</a></li>
+<li><a href="#_4_0_0">4.0.0</a></li>
+<li><a href="#_3_4_3">3.4.3</a></li>
+<li><a href="#_3_4_2">3.4.2</a></li>
+<li><a href="#_3_4_1">3.4.1</a></li>
+<li><a href="#_3_4_0">3.4.0</a></li>
+<li><a href="#_3_3_8">3.3.8</a></li>
+<li><a href="#_3_3_7">3.3.7</a></li>
+<li><a href="#_3_3_6">3.3.6</a></li>
+<li><a href="#_3_3_5">3.3.5</a></li>
+<li><a href="#_3_3_4">3.3.4</a></li>
+<li><a href="#_3_3_3">3.3.3</a></li>
+<li><a href="#_3_3_2">3.3.2</a></li>
+<li><a href="#_3_3_1">3.3.1</a></li>
+<li><a href="#_3_3_0">3.3.0</a></li>
+<li><a href="#_3_2_1_released_10_mar_2014">3.2.1 Released (10-Mar-2014)</a></li>
+<li><a href="#_3_2_0_released_13_aug_2013">3.2.0 Released (13-Aug-2013)</a></li>
+<li><a href="#_3_1_1_released_9_jul_2013">3.1.1 Released (9-Jul-2013)</a></li>
+<li><a href="#_3_1_0_released_17_jun_2013">3.1.0 Released (17-Jun-2013)</a></li>
+<li><a href="#_3_0_1_released_16_apr_2013">3.0.1 Released (16-Apr-2013)</a></li>
+<li><a href="#_3_0_0_released_10_apr_2013">3.0.0 Released (10-Apr-2013)</a></li>
+<li><a href="#_3_0_0_beta5_released_08_apr_2013">3.0.0.beta5 Released (08-Apr-2013)</a></li>
+<li><a href="#_3_0_0_beta4_released_08_apr_2013">3.0.0.beta4 Released (08-Apr-2013)</a></li>
+<li><a href="#_3_0_0_beta3_released_20_feb_2013">3.0.0.beta3 Released (20-Feb-2013)</a></li>
+<li><a href="#_3_0_0_beta2_released_7_jan_2013">3.0.0.beta2 Released (7-Jan-2013)</a></li>
+<li><a href="#_3_0_0_beta1_released_3_jan_2013">3.0.0.beta1 Released (3-Jan-2013)</a></li>
+<li><a href="#_2_10_3_released_22_aug_2012">2.10.3 Released (22-Aug-2012)</a></li>
+<li><a href="#_2_10_2_released_21_aug_2012">2.10.2 Released (21-Aug-2012)</a></li>
+<li><a href="#_2_10_1_6_june_2012">2.10.1 (6-June-2012)</a></li>
+<li><a href="#_2_10_13_may_2012">2.10 (13-May-2012)</a></li>
+<li><a href="#_2_9_8_apr_2012">2.9 (8-Apr-2012)</a></li>
+<li><a href="#_2_8_6_feb_2012">2.8 (6-Feb-2012)</a></li>
+<li><a href="#_2_7_1_21_dec_2011">2.7.1  (21-Dec-2011)</a></li>
+<li><a href="#_2_7_12_nov_2011">2.7 (12-Nov-2011)</a></li>
+<li><a href="#_2_6">2.6</a></li>
+<li><a href="#_2_5_1">2.5.1</a></li>
+<li><a href="#_2_5">2.5</a></li>
+<li><a href="#_2_0_2">2.0.2</a></li>
+<li><a href="#_2_0_1">2.0.1</a></li>
+<li><a href="#_2_0_0">2.0.0</a></li>
+<li><a href="#_1_2_2">1.2.2</a></li>
+<li><a href="#_1_2_1">1.2.1</a></li>
+<li><a href="#_1_2_0">1.2.0</a></li>
+<li><a href="#_1_1_0">1.1.0</a></li>
+<li><a href="#_1_0_9">1.0.9</a></li>
+<li><a href="#_1_0_8">1.0.8</a></li>
+<li><a href="#_1_0_7">1.0.7</a></li>
+<li><a href="#_1_0_6">1.0.6</a></li>
+<li><a href="#_1_0_5">1.0.5</a></li>
 </ul>
 </div>
 </div>
 <div id="content">
 <div class="sect1">
-<h2 id="_read_this_first">Read This First</h2>
+<h2 id="_4_0_0">4.0.0</h2>
 <div class="sectionbody">
-<div class="paragraph">
-<p>To understand the problem the Disruptor is trying to solve, and to get a feel for why this concurrency framework is so fast, read the <a href="disruptor.html">Technical Paper</a>.
-It also contains detailed performance results.</p>
-</div>
-<div class="paragraph">
-<p>And now for some words from our sponsors&#8230;&#8203;</p>
-</div>
-<div class="paragraph">
-<p>LMAX are recruiting once again.
-If you are interested in working with a great team, with some amazing technology, and think you can add something to the mix then please check out our <a href="https://careers.lmax.com/">jobs page</a>.</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_what_is_the_disruptor">What is the Disruptor?</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p><a href="https://www.lmax.com">LMAX</a> aims to be the fastest trading platform in the world.
-Clearly, in order to achieve this we needed to do something special to achieve very low-latency and high-throughput with our Java platform.
-Performance testing showed that using queues to pass data between stages of the system was introducing latency, so we focused on optimising this area.</p>
-</div>
-<div class="paragraph">
-<p>The Disruptor is the result of our research and testing.
-We found that cache misses at the CPU-level, and locks requiring kernel arbitration are both extremely costly, so we created a framework which has "mechanical sympathy" for the hardware it&#8217;s running on, and that&#8217;s lock-free.</p>
-</div>
-<div class="paragraph">
-<p>This is not a specialist solution, it&#8217;s not designed to work only for a financial application.
-The Disruptor is a general-purpose mechanism for solving a difficult problem in concurrent programming.</p>
-</div>
-<div class="paragraph">
-<p>It works in a different way to more conventional approaches, so you use it a little differently than you might be used to.
-For example, applying the pattern to your system is not as simple as replacing all your queues with the <a href="https://trishagee.com/2011/06/22/dissecting_the_disruptor_whats_so_special_about_a_ring_buffer/">magic ring buffer</a>.
-We&#8217;ve got:</p>
-</div>
 <div class="ulist">
 <ul>
 <li>
-<p>a <a href="user-guide/index.html">User Guide</a> to guide you,</p>
+<p>Minimum Java version now 11</p>
 </li>
 <li>
-<p>a growing number of <a href="https://github.com/LMAX-Exchange/disruptor/wiki/Blogs-And-Articles">blogs and articles</a> giving an overview of how it works,</p>
+<p>Issue #323 - <code>WorkerPool</code> and <code>WorkProcessor</code> have been removed, no more <code>Disruptor::handleEventsWithWorkerPool</code></p>
 </li>
 <li>
-<p>the <a href="disruptor.html">technical paper</a> goes into some detail as you&#8217;d expect,</p>
+<p><code>Disruptor</code> constructors using <code>Executor</code> have been removed. Use <code>ThreadFactory</code> instead.</p>
 </li>
 <li>
-<p>and the performance tests give examples of how to use the Disruptor.</p>
+<p>Rolled up event handling extension interfaces on to <code>EventHandler</code>:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>BatchStartAware</code></p>
+</li>
+<li>
+<p><code>LifecycleAware</code></p>
+</li>
+<li>
+<p><code>SequenceReportingEventHandler</code></p>
 </li>
 </ul>
 </div>
-<div class="paragraph">
-<p>If you prefer real, live people explaining things instead of a dry paper or content-heavy website, there&#8217;s always the <a href="https://www.infoq.com/presentations/LMAX/">presentation Mike and Martin gave</a> at QCon San Francisco.
-If you fancy a natter with the folks involved head over to our <a href="https://groups.google.com/g/lmax-disruptor">Discussion Group</a>.
-Martin Thompson will also witter on occasionally about performance in his <a href="https://mechanical-sympathy.blogspot.com/">Mechanical Sympathy blog</a>.
-Martin Fowler has also done a great <a href="https://martinfowler.com/articles/lmax.html">review</a> of the Disruptor&#8217;s application at LMAX.</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_whats_the_big_deal">What&#8217;s the big deal?</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>It&#8217;s fast.
-Very fast.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="./resources/images/latency-histogram.png" alt="latency histogram">
-</div>
-<div class="title">Figure 1. Latency histogram comparing Disruptor to ArrayBlockingQueue</div>
-</div>
-<div class="paragraph">
-<p>Note that this is a log-log scale, not linear.
-If we tried to plot the comparisons on a linear scale, we&#8217;d run out of space very quickly.
-We have performance results of the test that produced these results, plus others of throughput testing.</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_great_what_do_i_do_next">Great What do I do next?</h2>
-<div class="sectionbody">
+</li>
+<li>
+<p><code>FatalExceptionHandler</code> and <code>IgnoreExceptionHandler</code> now use the JDK 9 Platform Logging API, i.e. <code>System.Logger</code></p>
+</li>
+<li>
+<p>Add rewind batch feature to the <code>BatchEventProcessor</code></p>
+</li>
+<li>
+<p>Add a maximum batch size argument to <code>BatchEventProcessor</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p>Read the <a href="user-guide/index.html">User Guide</a>,</p>
+<p><code>EventHandler::onBatchStart</code> now gets both the <code>batchSize</code> as well as <code>queueDepth</code> (previously it had <code>batchSize</code> which reported queue depth)</p>
+</li>
+</ul>
+</div>
 </li>
 <li>
-<p>Read the <a href="./javadoc/index.html">API documentation</a>,</p>
+<p>Added documentation to <code>EventPoller</code></p>
 </li>
 <li>
-<p>Check out our <a href="https://github.com/LMAX-Exchange/disruptor/wiki/Frequently-Asked-Questions">Frequently Asked Questions</a></p>
+<p><code>Util::log2</code> throws if passed a non-positive argument</p>
 </li>
 <li>
-<p>Want to work on the Disruptor? Read the <a href="developer-guide/index.html">Developer Guide</a>,</p>
+<p>Deprecations</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Deprecated <code>ThreadHints.onSpinWait()</code></p>
+</li>
+<li>
+<p>Deprecated <code>Disruptor.handleExceptionsWith()</code> - this had been javadoc deprecated since 2015 but not in the code</p>
+</li>
+<li>
+<p>Removed previously deprecated methods</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Ringbuffer.resetTo()</code></p>
+</li>
+<li>
+<p><code>ConsumerRepository.getLastSequenceInChain()</code></p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
 </li>
 </ul>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_discussion_blogs_other_useful_links">Discussion, Blogs &amp; Other Useful Links</h2>
+<h2 id="_3_4_3">3.4.3</h2>
 <div class="sectionbody">
 <div class="ulist">
 <ul>
 <li>
-<p><a href="https://groups.google.com/g/lmax-disruptor">Disruptor Google Group</a></p>
-</li>
-<li>
-<p><a href="disruptor.html">Disruptor Paper</a></p>
-</li>
-<li>
-<p><a href="https://martinfowler.com/articles/lmax.html">Martin Fowler&#8217;s Technical Review</a></p>
-</li>
-<li>
-<p><a href="https://github.com/disruptor-net/Disruptor-net">.NET Disruptor Port</a></p>
-</li>
-<li>
-<p><a href="https://www.lmax.com">LMAX Exchange</a></p>
-</li>
-<li>
-<p><a href="https://www.lmax.com/blog/staff-blogs/">LMAX Staff Blogs</a></p>
-</li>
-<li>
-<p><a href="https://mechanical-sympathy.blogspot.com/">Mechanical Sympathy</a> (Martin Thompson)</p>
-</li>
-<li>
-<p><a href="https://bad-concurrency.blogspot.com/">Bad Concurrency</a> (Michael Barker)</p>
+<p>Add Automatic-Module-Name to MANIFEST.MF</p>
 </li>
 </ul>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_presentations">Presentations</h2>
+<h2 id="_3_4_2">3.4.2</h2>
 <div class="sectionbody">
 <div class="ulist">
 <ul>
 <li>
-<p><a href="https://www.infoq.com/presentations/LMAX/">Disruptor presentation @ QCon SF</a></p>
-</li>
-<li>
-<p><a href="https://www.slideshare.net/trishagee/introduction-to-the-disruptor">Introduction to the Disruptor</a></p>
+<p>Fix race condition in BatchEventProcessor with 3 or more starting/halting concurrently.</p>
 </li>
 </ul>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_changelog">Changelog</h2>
+<h2 id="_3_4_1">3.4.1</h2>
 <div class="sectionbody">
-<div class="paragraph">
-<p>The changelog can be <a href="changelog.html">found here</a>.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Fix race between run() and halt() on BatchEventProcessor.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_3_4_0">3.4.0</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>Drop support for JDK6, support JDK7 and above only.</p>
+</li>
+<li>
+<p>Add <code>ThreadHints.onSpinWait</code> to all busy spins within Disruptor.</p>
+</li>
+<li>
+<p>Increase default sleep time for LockSupport.parkNanos to prevent busy spinning.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_3_3_8">3.3.8</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>Revert belt and braces WaitStrategy signalling.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_3_3_7">3.3.7</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>Add batch size to <code>BatchStartAware.onBatchStart()</code></p>
+</li>
+<li>
+<p>Upgrade to newer versions of gradle, checkstyle and JUnit</p>
+</li>
+<li>
+<p>Deprecate classes &amp; methods for later release</p>
+</li>
+<li>
+<p>Remove JMock and rewrite tests accordingly</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_3_3_6">3.3.6</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>Support adding gating sequences before calling Disruptor.start()</p>
+</li>
+<li>
+<p>Fix minor concurrency race when dynamically adding sequences</p>
+</li>
+<li>
+<p>Fix wrapping problem when adding work handlers to the Disruptor</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_3_3_5">3.3.5</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>Fix NPE in TimeoutBlockingWaitStrategy when used with WorkProcessor</p>
+</li>
+<li>
+<p>Add LiteTimeoutBlockingWaitStrategy</p>
+</li>
+<li>
+<p>Resignal any waiting threads when trying to publish to a full ring buffer</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_3_3_4">3.3.4</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>Small build fixes and refactorings</p>
+</li>
+<li>
+<p>Removed unused MutableLong class</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_3_3_3">3.3.3</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>Support ThreadFactory in Disruptor DSL</p>
+</li>
+<li>
+<p>Make use of the Executor deprecated</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_3_3_2">3.3.2</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>Minor Javadoc fixes, example code and file renames.</p>
+</li>
+<li>
+<p>Additional generics for parametrised ExceptionHandler.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_3_3_1">3.3.1</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>Minor Javadoc fixes, example code and file renames.</p>
+</li>
+<li>
+<p>Make ExceptionHandler type parametrised.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_3_3_0">3.3.0</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>Inheritance based Padding for RingBuffer and Sequencers.</p>
+</li>
+<li>
+<p>Better DSL support for adding custom EventProcessors.</p>
+</li>
+<li>
+<p>Remove deprecated methods (slightly breaking change)</p>
+</li>
+<li>
+<p>Experimental LiteBlockingWaitStrategy</p>
+</li>
+<li>
+<p>Experimental EventPoller for polling for data instead of waiting.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_3_2_1_released_10_mar_2014">3.2.1 Released (10-Mar-2014)</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>Minor build and IDE updates</p>
+</li>
+<li>
+<p>Rewrite of performance tests to run without JUnit and separate Queues in to their own tests</p>
+</li>
+<li>
+<p>Remove old throttled performance test</p>
+</li>
+<li>
+<p>Add performance tests for immutable message example</p>
+</li>
+<li>
+<p>Add performance tests for off-heap example</p>
+</li>
+<li>
+<p>Remove old Caliper tests</p>
+</li>
+<li>
+<p>Remove some stray yield() calls</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_3_2_0_released_13_aug_2013">3.2.0 Released (13-Aug-2013)</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>Fix performance bug in WorkProcessor with MultiProducerSequencer</p>
+</li>
+<li>
+<p>Add EventRelease support to WorkProcessor (experimental)</p>
+</li>
+<li>
+<p>Add PingPongLatencyTest</p>
+</li>
+<li>
+<p>Switch to HdrHistogram for latency measurement</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_3_1_1_released_9_jul_2013">3.1.1 Released (9-Jul-2013)</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>Fix bug in WorkProcessor where consumers could get ahead of publishers</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_3_1_0_released_17_jun_2013">3.1.0 Released (17-Jun-2013)</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>Fix bug in Disruptor DSL where some consumers wouldn&#8217;t be included in the gating sequences.</p>
+</li>
+<li>
+<p>Add support for using the EventTranslator with batch publication.</p>
+</li>
+<li>
+<p>Support timeouts when shutting down the Disruptor using the DSL.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_3_0_1_released_16_apr_2013">3.0.1 Released (16-Apr-2013)</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>Remove Sequencer.ensureAvailable() and move functionality into the ProcessingSequenceBarrier.</p>
+</li>
+<li>
+<p>Add get() method and deprecate getPublished() and getPreallocated() from the RingBuffer.</p>
+</li>
+<li>
+<p>Add TimeoutException to SequenceBarrier.waitFor().</p>
+</li>
+<li>
+<p>Fix off by one bug in MultiProducerSequencer.publish(lo, hi).</p>
+</li>
+<li>
+<p>Improve testing for Sequencers.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_3_0_0_released_10_apr_2013">3.0.0 Released (10-Apr-2013)</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>Add remaining capacity to RingBuffer</p>
+</li>
+<li>
+<p>Add batch publish methods to Sequencer</p>
+</li>
+<li>
+<p>Add DataProvider interface to decouple the RingBuffer and BatchEventProcessor</p>
+</li>
+<li>
+<p>Upgrade to gradle 1.5</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_3_0_0_beta5_released_08_apr_2013">3.0.0.beta5 Released (08-Apr-2013)</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>Make Sequencer public</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_3_0_0_beta4_released_08_apr_2013">3.0.0.beta4 Released (08-Apr-2013)</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>Refactoring, merge Publisher back into Sequencer and some of the gating sequence responsibilities up to the sequencer.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_3_0_0_beta3_released_20_feb_2013">3.0.0.beta3 Released (20-Feb-2013)</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>Significant Javadoc updates (thanks Jason Koch)</p>
+</li>
+<li>
+<p>DSL support for WorkerPool</p>
+</li>
+<li>
+<p>Small performance tweaks</p>
+</li>
+<li>
+<p>Add TimeoutHandler and TimeoutBlockingWaitStrategy and support timeouts in BatchEventProcessor</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_3_0_0_beta2_released_7_jan_2013">3.0.0.beta2 Released (7-Jan-2013)</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>Remove millisecond wakeup from BlockingWaitStrategy</p>
+</li>
+<li>
+<p>Add RingBuffer.claimAndGetPreallocated</p>
+</li>
+<li>
+<p>Add RingBuffer.isPublished</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_3_0_0_beta1_released_3_jan_2013">3.0.0.beta1 Released (3-Jan-2013)</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>Remove claim strategies and replace with Publishers/Sequences, remove pluggability of claim strategies.</p>
+</li>
+<li>
+<p>Introduce new multi-producer publisher algorithm (faster and more scalable).</p>
+</li>
+<li>
+<p>Introduce more flexible EventPublisher interface that allow for static definition of translators
+that can handle local values.</p>
+</li>
+<li>
+<p>Allow for dynamic addition of gating sequences to ring buffer.  Default it to empty, will allow
+messages to be sent and the ring buffer to wrap if there are no gating sequences defined.</p>
+</li>
+<li>
+<p>Remove batch writes to the ring buffer.</p>
+</li>
+<li>
+<p>Remove timeout read methods.</p>
+</li>
+<li>
+<p>Switch to gradle build and layout the source maven style.</p>
+</li>
+<li>
+<p>API change, remove RingBuffer.get, add RingBuffer.getPreallocated for producers and
+RingBuffer.getPublished for consumers.</p>
+</li>
+<li>
+<p>Change maven dependency group id to com.lmax.</p>
+</li>
+<li>
+<p>Added PhasedBackoffStrategy.</p>
+</li>
+<li>
+<p>Remove explicit claim/forcePublish and supply a resetTo method.</p>
+</li>
+<li>
+<p>Added better handling of cases when the gating sequence is ahead of the cursor value.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_2_10_3_released_22_aug_2012">2.10.3 Released (22-Aug-2012)</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>Bug fix, race condition in SequenceGroup when removing Sequences and getting current value</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_2_10_2_released_21_aug_2012">2.10.2 Released (21-Aug-2012)</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>Bug fix, potential race condition in BlockingWaitStrategy.</p>
+</li>
+<li>
+<p>Bug fix set initial SequenceGroup value to -1 (Issue #27).</p>
+</li>
+<li>
+<p>Deprecate timeout methods that will be removed in version 3.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_2_10_1_6_june_2012">2.10.1 (6-June-2012)</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>Bug fix, correct OSGI metadata.</p>
+</li>
+<li>
+<p>Remove unnecessary code in wait strategies.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_2_10_13_may_2012">2.10 (13-May-2012)</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>Remove deprecated timeout methods.</p>
+</li>
+<li>
+<p>Added OSGI metadata to jar file.</p>
+</li>
+<li>
+<p>Removed PaddedAtomicLong and use Sequence in all places.</p>
+</li>
+<li>
+<p>Fix various generics warnings.</p>
+</li>
+<li>
+<p>Change Sequence implementation to work around IBM JDK bug and improve performance by ~10%.</p>
+</li>
+<li>
+<p>Add a remainingCapacity() call to the Sequencer class.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_2_9_8_apr_2012">2.9 (8-Apr-2012)</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>Deprecate timeout methods for publishing.</p>
+</li>
+<li>
+<p>Add tryNext and tryPublishEvent for events that shouldn&#8217;t block during delivery.</p>
+</li>
+<li>
+<p>Small performance enhancement for MultithreadClaimStrategy.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_2_8_6_feb_2012">2.8 (6-Feb-2012)</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>Create new MultithreadClaimStrategy that works between when threads are highly contended. Previous implementation is now called MultithreadLowContentionClaimStrategy</p>
+</li>
+<li>
+<p>Fix for bug where EventProcessors weren&#8217;t being added as gating sequences to the ring buffer.</p>
+</li>
+<li>
+<p>Fix range tracking bug in Histogram</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_2_7_1_21_dec_2011">2.7.1  (21-Dec-2011)</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>Artefacts made available via maven central repository. (groupId:com.googlecode.disruptor, artifactId:disruptor) See UsingDisruptorInYourProject for details.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_2_7_12_nov_2011">2.7 (12-Nov-2011)</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>Changed construction API to allow user supplied claim and wait strategies</p>
+</li>
+<li>
+<p>Added AggregateEventHandler to support multiple EventHandlers from a single BatchEventProcessor</p>
+</li>
+<li>
+<p>Support exception handling from LifecycleAware</p>
+</li>
+<li>
+<p>Added timeout API calls for claiming a sequence when publishing</p>
+</li>
+<li>
+<p>Use LockSupport.parkNanos() instead of Thread.sleep() to reduce latency</p>
+</li>
+<li>
+<p>Reworked performance tests to better support profiling and use LinkedBlockingQueue for comparison because it performs better on the latest processors</p>
+</li>
+<li>
+<p>Minor bugfixes</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_2_6">2.6</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>Introduced WorkerPool to allow the one time consumption of events by a worker in a pool of EventProcessors.</p>
+</li>
+<li>
+<p>New internal implementation of SequenceGroup which is lock free at all times and garbage free for get and set operations.</p>
+</li>
+<li>
+<p>SequenceBarrier now checks alert status on every call whether it is blocking or not.</p>
+</li>
+<li>
+<p>Added scripts in preparation for publishing binaries to maven repository.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_2_5_1">2.5.1</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>Bugfix for supporting SequenceReportingEventHandler from DSL. ([issue 9](<a href="https://github.com/LMAX-Exchange/disruptor/issues#issue/9)" class="bare">https://github.com/LMAX-Exchange/disruptor/issues#issue/9)</a>)</p>
+</li>
+<li>
+<p>Bugfix for multi-threaded publishing to multiple ring buffers ([issue 10](<a href="https://github.com/LMAX-Exchange/disruptor/issues#issue/10)" class="bare">https://github.com/LMAX-Exchange/disruptor/issues#issue/10)</a>)</p>
+</li>
+<li>
+<p>Change SequenceBarrier to always check alert status before entering waitFor cycle.  Previously this was only checked when the requested sequence was not available.</p>
+</li>
+<li>
+<p>Change ClaimStrategy to not spin when the buffer has no available capacity, instead go straight to yielding to allow event processors to catch up.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_2_5">2.5</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>Changed RingBuffer and publisher API so any mutable object can be placed in the RingBuffer without having to extend AbstractEvent</p>
+</li>
+<li>
+<p>Added EventPublisher implementation to allow the publishing steps to be combined into one action</p>
+</li>
+<li>
+<p>DisruptorWizard has been renamed to Disruptor with added support for any subtype of EventProcessor</p>
+</li>
+<li>
+<p>Introduced a new Sequencer class that allows the Disruptor to be applied to other data structures such as multiple arrays.  This can be a very useful pattern when multiple event processors work on the same event and you want to avoid false sharing.  The Diamond for FizzBuzz is a good example of the issue.  It is also higher performance by avoiding the pointer indirection when arrays of primitives are used.</p>
+</li>
+<li>
+<p>Further increased performance and scalability by reducing false sharing.</p>
+</li>
+<li>
+<p>Added progressive backoff strategy to the MultiThreadedClaimStrategy to prevent publisher getting into the claim cycle when the buffer is full because of a slow EventProcessor.</p>
+</li>
+<li>
+<p>Significantly improved performance to WaitStrategy.Option.BLOCKING</p>
+</li>
+<li>
+<p>Introduced SequenceGroup to allow dynamic registration of EventProcessors.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_2_0_2">2.0.2</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>Rework of "False Sharing" prevention which makes the performance much more predictable across all platforms. Special thanks to Jeff Hain for helping focus in on a solution.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_2_0_1">2.0.1</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>Renaming mistake for publishEventAtSequence should have been claimEventAtSequence</p>
+</li>
+<li>
+<p>Fixed bug in YieldingStrategy that was busy spinning more than yielding and introduced SleepingStrategy</p>
+</li>
+<li>
+<p>Removed code duplication in Unicast perf tests for expected result</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_2_0_0">2.0.0</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>New API to reflect naming changes</p>
+</li>
+<li>
+<p>Producer &#8594; Publisher</p>
+</li>
+<li>
+<p>Entry &#8594; Event</p>
+</li>
+<li>
+<p>Consumer &#8594; EventProcessor</p>
+</li>
+<li>
+<p>ConsumerBarrier &#8594; DependencyBarrier</p>
+</li>
+<li>
+<p>ProducerBarrier has been incorporated into the RingBuffer for ease of use</p>
+</li>
+<li>
+<p>DisruptorWizard integrated for fluent API dependency graph construction</p>
+</li>
+<li>
+<p>Rework of sequence tracking to avoid false sharing on Java 7, plus avoid mega-morphic calls to make better use of the instruction cache</p>
+</li>
+<li>
+<p>Reduced usage of memory barriers where possible</p>
+</li>
+<li>
+<p>WaitStrategy.YIELDING initially spins for a short period to reduce latency</p>
+</li>
+<li>
+<p>Major performance improvement giving more than a 2X increase for throughput across most use cases.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_1_2_2">1.2.2</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>ProducerBarrier change to yield after busy spinning for a while.  This may help the situation when the the number of producers exceeds the number of cores.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_1_2_1">1.2.1</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>Bug fix for setting the sequence in the ForceFillProducerBarrier.</p>
+</li>
+<li>
+<p>Code syntax tidy up.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_1_2_0">1.2.0</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>Bug fix for regression introduced inlining multi-thread producer commit tracking code.  This was a critical bug for the multi-threaded producer scenario.</p>
+</li>
+<li>
+<p>Added new ProducerBarrier method for claiming a batch of sequences.  This feature can give a significant throughput increase.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_1_1_0">1.1.0</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>Off by one regression bug in ProducerBarrier introduced in 1.0.9.</p>
+</li>
+<li>
+<p>Clarified the algorithm for initial cursor value in the ClaimStrategy.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_1_0_9">1.0.9</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>Added Apache 2.0 licence and comments.</p>
+</li>
+<li>
+<p>Small performance improvements to producers barriers and BatchConsumer.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_1_0_8">1.0.8</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>Bugfix for BatchConsumer sequence update when using SequenceTrackingHandler to ensure sequence is always updated at the end of a batch regardless.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_1_0_7">1.0.7</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>Factored out LifecycleAware interface to allowing consumers handlers to be notified when their thread starts and shuts down.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_1_0_6">1.0.6</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>Cache minimum consumer sequence in producer barriers.  This helps make the performance more predictable on Nehalem processors and greater on earlier Core 2 processors.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_1_0_5">1.0.5</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>Removed Entry interface.  All Entries must now extend AbstractEntry.</p>
+</li>
+<li>
+<p>Made setSequence package private on AbstractEntry for encapsulation.</p>
+</li>
+</ul>
 </div>
 </div>
 </div>
